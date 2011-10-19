@@ -2,7 +2,7 @@
 
 int main(){
     int i, j, temp, keylength = 3;
-    unsigned char S[256], K[3] = "key";
+    unsigned char S[256], K[3] = "abc";
     
     /*S is initialized to the identity permutation, mixes in bytes of the key.*/
     for (i = 0; i < 256; i++)
@@ -29,7 +29,7 @@ int main(){
 	S[j] = temp;
 	/*generate K*/
 	K[0] = S[(S[i] + S[j]) % 256];
-	printf("%d", K[0]);
+	printf("%s\n", K[0]);
     }
     return 0;
 }
