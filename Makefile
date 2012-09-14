@@ -1,6 +1,6 @@
 OBJS=rc4.o test.o
 CC=gcc
-CFLAGS=-O -g -Wall
+CFLAGS=-O -g
 
 test:$(OBJS)
 	$(CC) $(OBJS) -o test
