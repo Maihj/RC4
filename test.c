@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "rc4.c"
+#include "rc4.h"
 
 int main(){
     int i;
