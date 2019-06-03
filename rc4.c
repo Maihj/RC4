@@ -20,9 +20,9 @@ void RC4_key(RC4_KEY *rc4_key, unsigned char *key, int *keylength){
 
 /*Generate the key stream which length is the same as plaintext's and encrypt the plaintext and output the ciphertext.*/
 void RC4(RC4_KEY *rc4_key, unsigned char *plaintext, int *plaintext_length, unsigned char *ciphertext){
-    int i = 0, j = 0, n, temp;
+    int i = 0, j = 0, k = 0, n, temp;
 
-    for (i = 0; i < *plaintext_length; i++){
+    for (k = 0; k < *plaintext_length; k++){
 	i = (i + 1) % 256;
 	j = (j + rc4_key -> S[i]) % 256;
 	/*Swap rc4_key -> S[i] and rc4_key -> S[j]*/
@@ -33,6 +33,6 @@ void RC4(RC4_KEY *rc4_key, unsigned char *plaintext, int *plaintext_length, unsi
 	n = rc4_key -> S[(rc4_key -> S[i] + rc4_key -> S[j]) % 256];
 
 	/*Encryption*/
-	*(ciphertext + i) = *(plaintext + i) ^ n;
+	*(ciphertext + k) = *(plaintext + k) ^ n;
     }
 }
